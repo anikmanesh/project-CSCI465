@@ -1,0 +1,70 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+   body {
+     background-color : #FF015B;
+     background-image: url('https://img.theculturetrip.com/fit-in/1024x/wp-content/uploads/2016/08/pl_launch_web_assets-14.jpg');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
+
+   }
+   h1 {
+     text-align: center;
+     text-transform: uppercase;
+     color: #38003D;
+   }
+   input[type=text] {
+     width: 130px;
+     box-sizing: border-box;
+     border: 2px solid #ccc;
+     border-radius: 4px;
+     font-size: 16px;
+     background-color: white;
+     background-position: 10px 10px;
+     background-repeat: no-repeat;
+     padding: 12px 20px 12px 40px;
+     -webkit-transition: width 0.4s ease-in-out;
+     transition: width 0.4s ease-in-out;
+   }
+
+   input[type=text]:focus {
+     width: 100%;
+   }
+   input[type=button] {
+  background-color: #38003D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+  </style>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <!-- What chat room would you like to enter? -->
+
+    <h1 style ="font-family:serif;" >What chat room would you like to enter?</h1>
+    <input id="room-name-input" type="text" placeholder="Search.." size="100"/><br/>
+    <input id="room-name-submit" type="button" value="Enter"/>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+{% load static %}
+{% include "base.html" %}
+
+{% block content %}
+
+<head>
+<style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38003D;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #98819B;
+}
+
+.active {
+  background-color: #40FB88;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50.00%;
+  padding: 15px 15px 15px 15px ;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<style>
+ body {
+   background-color : #FF015B;
+   background-image: url('https://img.theculturetrip.com/fit-in/1024x/wp-content/uploads/2016/08/pl_launch_web_assets-14.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+
+ }
+ table {
+  border-collapse: collapse;
+  opacity : 0.80;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #40FB88;
+  color: white;
+}
+</style>
+<body>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="/chat">Chat Rooms</a></li>
+  <li> <a href="#about">About</a></li>
+  {% if user.is_authenticated %}
+  <li style="float:right"> <a href="/logout">Logout</a> </li>
+  {% else %}
+  <li style="float:right"> <a href="/login">Login</a> </li>
+  {% endif %}
+</ul>
+<br>
+
+<div class = "column">
+  <table>
+    <tr>
+      <th></th>
+      <th>Club</th>
+      <th>Played</th>
+      <th>Won</th>
+      <th>Draw</th>
+      <th>Lost</th>
+      <th>GD</th>
+      <th>Points</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Manchester City</td>
+      <td>37</td>
+      <td>31</td>
+      <td>2</td>
+      <td>4</td>
+      <td>+69</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liverpool</td>
+      <td>37</td>
+      <td>29</td>
+      <td>7</td>
+      <td>1</td>
+      <td>+65</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Chelsea</td>
+      <td>37</td>
+      <td>21</td>
+      <td>8</td>
+      <td>8</td>
+      <td>24</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Totenham</td>
+      <td>37</td>
+      <td>23</td>
+      <td>1</td>
+      <td>13</td>
+      <td>28</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Arsenal</td>
+      <td>37</td>
+      <td>20</td>
+      <td>7</td>
+      <td>10</td>
+      <td>+20</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Manchester United</td>
+      <td>37</td>
+      <td>19</td>
+      <td>9</td>
+      <td>9</td>
+      <td>+13</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Wolverhampton Wanderers</td>
+      <td>37</td>
+      <td>16</td>
+      <td>19</td>
+      <td>12</td>
+      <td>+3</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Everton</td>
+      <td>37</td>
+      <td>15</td>
+      <td>8</td>
+      <td>14</td>
+      <td>+8</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Leicester City</td>
+      <td>37</td>
+      <td>15</td>
+      <td>6</td>
+      <td>16</td>
+      <td>+3</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Watford</td>
+      <td>37</td>
+      <td>14</td>
+      <td>8</td>
+      <td>15</td>
+      <td>-4</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>West Ham United</td>
+      <td>37</td>
+      <td>14</td>
+      <td>7</td>
+      <td>16</td>
+      <td>-6</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Crystal Palace</td>
+      <td>37</td>
+      <td>13</td>
+      <td>7</td>
+      <td>17</td>
+      <td>-4</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Bournemouth</td>
+      <td>37</td>
+      <td>13</td>
+      <td>6</td>
+      <td>18</td>
+      <td>-12</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Newcastle United</td>
+      <td>37</td>
+      <td>11</td>
+      <td>9</td>
+      <td>17</td>
+      <td>-10</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Burnley</td>
+      <td>37</td>
+      <td>11</td>
+      <td>7</td>
+      <td>19</td>
+      <td>-21</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Southampton</td>
+      <td>37</td>
+      <td>9</td>
+      <td>11</td>
+      <td>17</td>
+      <td>-20</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Brighton and Hove Albion</td>
+      <td>37</td>
+      <td>9</td>
+      <td>9</td>
+      <td>19</td>
+      <td>-22</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Cardiff City</td>
+      <td>37</td>
+      <td>9</td>
+      <td>4</td>
+      <td>24</td>
+      <td>-37</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Fulham</td>
+      <td>37</td>
+      <td>7</td>
+      <td>5</td>
+      <td>25</td>
+      <td>-43</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Huddersfield Town</td>
+      <td>37</td>
+      <td>3</td>
+      <td>6</td>
+      <td>28</td>
+      <td>-54</td>
+      <td>15</td>
+    </tr>
+
+  </table>
+</div>
+
+<div class = "column">
+  <table>
+    <tr>
+      <th></th>
+      <th>Player</th>
+      <th>Goals</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Mohammad Salah</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pierre-Emerick Aubameyang</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Sadio Mane</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Sergio Aguero</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Jamie Vardy</td>
+      <td>18</td>
+    </tr>
+  </table>
+</div>
+
+</body>
+<!-- <il class="button"> {{ lilbody }} </il> -->
+
+<!-- {% if user.is_authenticated %}
+<a href="/logout">Logout</a>
+{% else %}
+<a href="/login">Login</a>
+{% endif %} -->
+
+<!-- <div id="app-4">
+  <il>
+    <il v-for="todo in suggestions">
+    <ol class="success button expanded">
+      {% verbatim %}
+      {{ todo.suggestion }}
+      {% endverbatim %}
+    </ol>
+    </il>
+  </il>
+</div> -->
+{% if user.is_authenticated %}
+
+<form action="/" method="post">
+{% csrf_token %}
+{{ form }}
+<input type="submit" class="button" value="Add">
+</form>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static "js/myvue.js" %}"></script>
+{% endblock %}

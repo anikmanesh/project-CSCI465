@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Registration{% endblock %}
+{% block content %}
+<style>
+ body {
+   background-color : #FF015B;
+   background-image: url('https://img.theculturetrip.com/fit-in/1024x/wp-content/uploads/2016/08/pl_launch_web_assets-14.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+
+ }
+</style>
+<div class="grid-x grid-padding-x">
+  <!-- <div class="large-4 medium-4 small-12 cell"></div> -->
+  <div class="large-4 medium-4 small-12 large-offset-4 medium-offset-4 cell">
+
+    <form action="/register/" method="post">
+        {% csrf_token %}
+        <h4 class="text-center">Register</h4>
+        {{ form.errors }}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        <input type="submit" class="button expanded" value="Register" />
+    </form>
+  </div>
+</div>
+{% endblock %}

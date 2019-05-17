@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+ body {
+   background-color : #FF015B;
+   background-image: url('https://img.theculturetrip.com/fit-in/1024x/wp-content/uploads/2016/08/pl_launch_web_assets-14.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+
+ }
+</style>
+<div class="grid-x grid-padding-x">
+  <!-- <div class="large-4 medium-4 small-12 cell"></div> -->
+  <div class="large-4 medium-4 small-12 large-offset-4 medium-offset-4 cell">
+    <h4 class="text-center">Login</h4>
+    <form action="/login/" method="post">
+        {% csrf_token %}
+        <style>
+         body {
+           background-color : #FF015B;
+           background-image: url('https://img.theculturetrip.com/fit-in/1024x/wp-content/uploads/2016/08/pl_launch_web_assets-14.jpg');
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-position: center;
+
+         }
+        </style>        {{ form.errors }}
+        <label>{{ form.username.label_tag }}</label>
+        {{ form.username }}
+        <label>{{ form.password.label_tag }}</label>
+        {{ form.password }}
+        <input type="submit" class="button expanded" value="Login" />
+        <a href="/register/" class="secondary button expanded">Register</a>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
+    </form>
+  </div>
+</div>
+{% endblock %}
